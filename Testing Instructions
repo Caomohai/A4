@@ -1,0 +1,14 @@
+mkdir server_files
+cp some_files/* server_files/
+cd server_files
+
+python3 UDPserver.py 51234
+
+mkdir client_files
+cd client_files
+echo "file1.txt" > files.txt
+echo "file2.pdf" >> files.txt
+
+python3 UDPclient.py localhost 51234 files.txt
+
+md5sum server_files/* client_files/*
